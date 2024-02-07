@@ -4,6 +4,7 @@ import 'package:chatty/screen/main/messages.dart';
 import 'package:chatty/screen/main/settings.dart';
 import 'package:chatty/utils/color.dart';
 import 'package:chatty/utils/constants.dart';
+import 'package:chatty/utils/theme.dart';
 import 'package:chatty/widget/custom_nav_bar.dart';
 import 'package:chatty/widget/nav_item.dart';
 import 'package:flutter/material.dart';
@@ -29,43 +30,63 @@ class BaseState extends State<Base> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _navScreen.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: Container(
-        height: 80,
-        decoration: const BoxDecoration(
-          color: Colors.red,
-          borderRadius: BorderRadius.only(topRight: Radius.circular(15), topLeft: Radius.circular(15))
+      backgroundColor: Colors.transparent,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: mainBackground(),
         ),
-        child: CustomNavBar(
-          activeColor: darkBlue,
-          color: ashGrey,
-          selectedIndex: _selectedIndex,
-          gap: 8,
-          menuList: const [
-            NavItem(
-              icon: Iconsax.message,
-              menuName: messages,
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Center(
+                child: _navScreen.elementAt(_selectedIndex),
+              ),
             ),
-            NavItem(
-                icon: Iconsax.call_calling,
-                menuName: calls
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                height: 80,
+                decoration: const BoxDecoration(
+                  color: white,
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                ),
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(15)),
+                  child: CustomNavBar(
+                    activeColor: darkBlue,
+                    color: ashGrey,
+                    selectedIndex: _selectedIndex,
+                    gap: 8,
+                    menuList: [
+                      NavItem(
+                        icon: _selectedIndex == 0 ? Iconsax.message5 : Iconsax.message,
+                        menuName: messages,
+                      ),
+                      NavItem(
+                        icon: _selectedIndex == 1 ? Iconsax.call_calling5 : Iconsax.call_calling,
+                        menuName: calls,
+                      ),
+                      NavItem(
+                        icon: _selectedIndex == 2 ? Iconsax.profile_circle5 : Iconsax.profile_circle,
+                        menuName: contacts,
+                      ),
+                      NavItem(
+                        icon: _selectedIndex == 3 ? Iconsax.setting_45 : Iconsax.setting_4,
+                        menuName: settings,
+                      ),
+                    ],
+                    onMenuChange: (index) {
+                      setState(() {
+                        _selectedIndex = index;
+                      });
+                    },
+                  ),
+                ),
+              ),
             ),
-            NavItem(
-                icon: Iconsax.profile_circle,
-                menuName: contacts
-            ),
-            NavItem(
-                icon: Iconsax.setting_4,
-                menuName: settings
-            )
           ],
-          onMenuChange: (index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
         ),
       ),
     );
