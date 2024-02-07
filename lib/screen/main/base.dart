@@ -20,6 +20,7 @@ class Base extends StatefulWidget {
 
 class BaseState extends State<Base> {
   int _selectedIndex = 0;
+  final PageController _pageController = PageController(initialPage: 0);
   static final List<Widget> _navScreen = <Widget> [
     const Messages(),
     const Calls(),
@@ -38,8 +39,10 @@ class BaseState extends State<Base> {
         child: Stack(
           children: [
             Positioned.fill(
-              child: Center(
-                child: _navScreen.elementAt(_selectedIndex),
+              child: PageView(
+                controller: _pageController,
+                scrollDirection: Axis.horizontal,
+                children: _navScreen,
               ),
             ),
             Positioned(
@@ -81,6 +84,11 @@ class BaseState extends State<Base> {
                       setState(() {
                         _selectedIndex = index;
                       });
+                      _pageController.animateToPage(
+                        index,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeInOut,
+                      );
                     },
                   ),
                 ),
