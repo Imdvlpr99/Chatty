@@ -1,3 +1,4 @@
+import 'package:chatty/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -33,17 +34,22 @@ class SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Lottie.asset(
-              'assets/anim/splash.json',
-              width: 100,
-              height: 100,
-              fit: BoxFit.fill,
-            )
-          ],
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: mainBackground()
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Lottie.asset(
+                'assets/anim/splash.json',
+                width: 100,
+                height: 100,
+                fit: BoxFit.fill,
+              )
+            ],
+          ),
         ),
       ),
     );
