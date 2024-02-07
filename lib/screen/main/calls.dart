@@ -13,6 +13,8 @@ class CallsState extends State<Calls> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
+      body: Container(
+      ),
     );
   }
 

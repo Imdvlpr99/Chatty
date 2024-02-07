@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:chatty/utils/color.dart';
 import 'package:flutter/cupertino.dart';
