@@ -53,10 +53,10 @@ class BaseState extends State<Base> {
                 height: 80,
                 decoration: const BoxDecoration(
                   color: white,
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
                 ),
                 child: ClipRRect(
-                  borderRadius: const BorderRadius.all(Radius.circular(15)),
+                  borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
                   child: CustomNavBar(
                     activeColor: darkBlue,
                     color: ashGrey,
