@@ -1,8 +1,6 @@
 import 'package:chatty/utils/color.dart';
 import 'package:chatty/utils/theme.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 class CustomCheckBox extends StatefulWidget {
   final bool isChecked;
