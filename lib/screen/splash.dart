@@ -1,9 +1,9 @@
+import 'package:chatty/screen/auth/base_auth.dart';
 import 'package:chatty/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 import '../utils/custom_page_route.dart';
-import 'main/base.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -25,7 +25,7 @@ class SplashState extends State<Splash> {
       Navigator.pushReplacement(
         context,
         CustomPageRoute(
-            child: const Base(),
+            child: const BaseAuth(),
             direction: AxisDirection.left),
       );
     });
