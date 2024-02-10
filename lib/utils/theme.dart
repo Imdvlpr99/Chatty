@@ -23,8 +23,26 @@ final ButtonStyle buttonPrimary = ElevatedButton.styleFrom(
   )
 );
 
+final ButtonStyle buttonSecondary = ElevatedButton.styleFrom(
+  backgroundColor: white,
+  elevation: 0,
+  side: const BorderSide(
+      width: 1,
+      color: grey
+  ),
+  shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular(32)),
+  )
+);
+
 /** Text Style **/
-final TextStyle medium14spAshGray = GoogleFonts.poppins().copyWith(
+final TextStyle medium12spSmokeGrey = GoogleFonts.poppins().copyWith(
+    color: smokeGrey,
+    fontWeight: FontWeight.w500,
+    fontSize: 12
+);
+
+final TextStyle medium14spAshGrey = GoogleFonts.poppins().copyWith(
     color: ashGrey,
     fontWeight: FontWeight.w500,
     fontSize: 14
@@ -52,6 +70,12 @@ final TextStyle bold16spWhite = GoogleFonts.poppins().copyWith(
   color: white,
   fontWeight: FontWeight.bold,
   fontSize: 16
+);
+
+final TextStyle bold24spWhite = GoogleFonts.poppins().copyWith(
+    color: white,
+    fontWeight: FontWeight.bold,
+    fontSize: 24
 );
 
 final TextStyle regular14spDarkBlue = GoogleFonts.poppins().copyWith(
