@@ -3,7 +3,6 @@ import 'package:chatty/screen/auth/register.dart';
 import 'package:chatty/utils/color.dart';
 import 'package:chatty/utils/constants.dart';
 import 'package:chatty/utils/theme.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,6 +15,7 @@ class BaseAuth extends StatefulWidget {
 
 class BaseAuthState extends State<BaseAuth> with SingleTickerProviderStateMixin {
   late final TabController _tabController;
+  int _selectedIndex = 0;
 
   final List<Tab> _tabs = [
     const Tab(text: login,),
@@ -59,6 +59,30 @@ class BaseAuthState extends State<BaseAuth> with SingleTickerProviderStateMixin 
                       )
                   ),
                   Positioned(
+                      top: 145,
+                      left: 0,
+                      right: 0,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 24),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              _selectedIndex == 0 ? loginTitle : registerTitle,
+                              style: bold24spWhite,
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              authDesc,
+                              style: medium12spSmokeGrey,
+                            )
+                          ],
+                        ),
+                      )
+                  ),
+                  Positioned(
                       top: 270,
                       left: 0,
                       right: 0,
@@ -74,11 +98,11 @@ class BaseAuthState extends State<BaseAuth> with SingleTickerProviderStateMixin 
                               margin: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
                               height: 52,
                               decoration: BoxDecoration(
-                                  color: softGray,
+                                  color: softGrey,
                                   borderRadius: BorderRadius.circular(32),
                                   boxShadow: [
                                     BoxShadow(
-                                      color: softGray.withOpacity(0.5),
+                                      color: softGrey.withOpacity(0.5),
                                       spreadRadius: 0,
                                       blurRadius: 2,
                                       offset: const Offset(0, 3), // Offset
@@ -92,12 +116,17 @@ class BaseAuthState extends State<BaseAuth> with SingleTickerProviderStateMixin 
                                   controller: _tabController,
                                   tabs: _tabs,
                                   labelStyle: semiBold14spDarkBlue,
-                                  unselectedLabelStyle: medium14spAshGray,
+                                  unselectedLabelStyle: medium14spAshGrey,
                                   indicatorSize: TabBarIndicatorSize.tab,
                                   indicator: BoxDecoration(
                                       color: white,
                                       borderRadius: BorderRadius.circular(48)
                                   ),
+                                  onTap: (index) {
+                                    setState(() {
+                                      _selectedIndex = index;
+                                    });
+                                  },
                                 ),
                               ),
                             ),

@@ -31,12 +31,12 @@ class CustomTextField extends StatelessWidget {
         color: white,
         borderRadius: BorderRadius.circular(32),
         border: Border.all(
-          color: softGray,
+          color: softGrey,
           width: 1,
         ),
         boxShadow: [
           BoxShadow(
-            color: softGray.withOpacity(0.5),
+            color: softGrey.withOpacity(0.5),
             spreadRadius: 0,
             blurRadius: 2,
             offset: const Offset(0, 3), // Offset
@@ -72,7 +72,7 @@ class CustomTextField extends StatelessWidget {
                   filled: true,
                   fillColor: Colors.transparent,
                   hintText: labelText,
-                  hintStyle: medium14spAshGray,
+                  hintStyle: medium14spAshGrey,
                   border: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.transparent),
                   ),
