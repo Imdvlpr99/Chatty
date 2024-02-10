@@ -3,8 +3,8 @@ import 'package:chatty/utils/constants.dart';
 import 'package:chatty/utils/theme.dart';
 import 'package:chatty/widget/custom_checkbox.dart';
 import 'package:chatty/widget/custom_text_field.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconsax/iconsax.dart';
 
 class Login extends StatefulWidget {
@@ -82,7 +82,99 @@ class LoginState extends State<Login> {
                         style: bold16spWhite,
                       )
                   ),
-                )
+                ),
+                const SizedBox(height: 24),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 32),
+                  height: 32,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                          child: Container(
+                            height: 2,
+                            decoration: BoxDecoration(
+                                color: grey,
+                                borderRadius: BorderRadius.circular(20)
+                            ),
+                          )
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        child: Text(
+                          loginOtherOption,
+                          style: semiBold12spAshGrey,
+                        ),
+                      ),
+                      Expanded(
+                          child: Container(
+                            height: 2,
+                            decoration: BoxDecoration(
+                                color: grey,
+                                borderRadius: BorderRadius.circular(50)
+                            ),
+                          )
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 24),
+                Row(
+                  children: [
+                    Expanded(
+                      child: SizedBox(
+                        height: 56,
+                        child: ElevatedButton(
+                          style: buttonSecondary,
+                          onPressed: () {},
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                'assets/images/google_icon.svg',
+                                width: 20,
+                                height: 20,
+                              ),
+                              const SizedBox(width: 8),
+                              Text(
+                                google,
+                                style: medium14spAshGrey,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: SizedBox(
+                        height: 56,
+                        child: ElevatedButton(
+                          style: buttonSecondary,
+                          onPressed: () {},
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                'assets/images/apple_icon.svg',
+                                width: 20,
+                                height: 20,
+                              ),
+                              const SizedBox(width: 8),
+                              Text(
+                                apple,
+                                style: medium14spAshGrey,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 20)
               ],
             ),
           ),
