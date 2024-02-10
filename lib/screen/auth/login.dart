@@ -33,7 +33,7 @@ class LoginState extends State<Login> {
                 CustomTextField(
                   controller: _emailController,
                   labelText: emailHint,
-                  textInputType: TextInputType.multiline,
+                  textInputType: TextInputType.emailAddress,
                   prefix: Iconsax.sms,
                 ),
                 const SizedBox(height: 16),
@@ -161,6 +161,7 @@ class LoginState extends State<Login> {
                                 'assets/images/apple_icon.svg',
                                 width: 20,
                                 height: 20,
+                                colorFilter: const ColorFilter.mode(ashGrey, BlendMode.srcIn),
                               ),
                               const SizedBox(width: 8),
                               Text(
