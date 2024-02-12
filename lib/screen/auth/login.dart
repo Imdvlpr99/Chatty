@@ -1,5 +1,6 @@
 import 'package:chatty/utils/color.dart';
 import 'package:chatty/utils/constants.dart';
+import 'package:chatty/utils/shared_preference.dart';
 import 'package:chatty/utils/theme.dart';
 import 'package:chatty/widget/custom_checkbox.dart';
 import 'package:chatty/widget/custom_text_field.dart';
@@ -18,6 +19,18 @@ class LoginState extends State<Login> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _isRemembered = false;
+  late String _userName;
+
+  @override
+  void initState() {
+    super.initState();
+    _getUserName();
+  }
+
+  Future<void> _getUserName() async {
+    _userName = await SharedPreferencesUtils.getString(userName);
+    _emailController.text = _userName;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +88,11 @@ class LoginState extends State<Login> {
                   child: ElevatedButton(
                       style: buttonPrimary,
                       onPressed: () {
-
+                        if (_isRemembered) {
+                          SharedPreferencesUtils.setString(userName, _emailController.text);
+                        } else {
+                          SharedPreferencesUtils.setString(userName, '');
+                        }
                       },
                       child: Text(
                         login,
