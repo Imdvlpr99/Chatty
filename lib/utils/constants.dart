@@ -15,3 +15,10 @@ const String apple = 'Apple';
 const String loginTitle = 'Go ahead and set up\nyour account';
 const String registerTitle = 'Create your\naccount';
 const String authDesc = 'Sign in-up to enjoy the best messaging experience';
+const String gettingStarted = 'Connect easily with\nyour family and friends';
+const String gettingStartedDesc = 'Feel the best messaging experience\nwith your family and friends\nall in your hands';
+const String startMessaging = 'Start Messaging';
+
+/** KEY **/
+const String isNotFirstInstall = 'IS_NOT_FIRST_INSTALL';
+const String userName = 'USERNAME';

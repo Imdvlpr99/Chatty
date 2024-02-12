@@ -4,6 +4,7 @@ import 'package:chatty/utils/color.dart';
 import 'package:chatty/utils/constants.dart';
 import 'package:chatty/utils/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BaseAuth extends StatefulWidget {
@@ -41,6 +42,7 @@ class BaseAuthState extends State<BaseAuth> with SingleTickerProviderStateMixin 
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(darkMode);
     return Scaffold(
       backgroundColor: blackSoft,
       body: Column(

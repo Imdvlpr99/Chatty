@@ -1,6 +1,17 @@
 import 'package:chatty/utils/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+/** System UI **/
+const SystemUiOverlayStyle darkMode = SystemUiOverlayStyle(
+  statusBarColor: Colors.transparent,
+  statusBarIconBrightness: Brightness.light,
+);
+const SystemUiOverlayStyle lightMode = SystemUiOverlayStyle(
+  statusBarColor: Colors.transparent,
+  statusBarIconBrightness: Brightness.dark,
+);
 
 /** Linear Color **/
 LinearGradient mainBackground() {
@@ -66,6 +77,12 @@ final TextStyle semiBold14spDarkBlue = GoogleFonts.poppins().copyWith(
     fontSize: 14
 );
 
+final TextStyle semiBold16spWhite = GoogleFonts.poppins().copyWith(
+    color: white,
+    fontWeight: FontWeight.w600,
+    fontSize: 16
+);
+
 final TextStyle bold16spWhite = GoogleFonts.poppins().copyWith(
   color: white,
   fontWeight: FontWeight.bold,
@@ -78,8 +95,20 @@ final TextStyle bold24spWhite = GoogleFonts.poppins().copyWith(
     fontSize: 24
 );
 
+final TextStyle bold24spBlack = GoogleFonts.poppins().copyWith(
+    color: black,
+    fontWeight: FontWeight.bold,
+    fontSize: 24
+);
+
 final TextStyle regular14spDarkBlue = GoogleFonts.poppins().copyWith(
     color: darkBlue,
     fontWeight: FontWeight.w400,
     fontSize: 14
+);
+
+final TextStyle regular18spAshGrey = GoogleFonts.poppins().copyWith(
+    color: ashGrey,
+    fontWeight: FontWeight.w400,
+    fontSize: 18
 );
