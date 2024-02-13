@@ -13,6 +13,14 @@ const SystemUiOverlayStyle lightMode = SystemUiOverlayStyle(
   statusBarIconBrightness: Brightness.dark,
 );
 
+/** Box Shadow **/
+final BoxShadow mainShadow = BoxShadow(
+  color: softGrey.withOpacity(0.5),
+  spreadRadius: 0,
+  blurRadius: 2,
+  offset: const Offset(0, 3), // Offset
+);
+
 /** Linear Color **/
 LinearGradient mainBackground() {
   return const LinearGradient(
