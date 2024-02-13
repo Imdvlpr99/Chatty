@@ -13,7 +13,7 @@ class CustomTextField extends StatelessWidget {
   final String obscureChar;
 
   const CustomTextField({
-    Key? key,
+    super.key,
     required this.controller,
     required this.labelText,
     required this.textInputType,
@@ -22,7 +22,7 @@ class CustomTextField extends StatelessWidget {
     this.maxLines,
     this.minLines,
     this.obscureChar = '•',
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -35,12 +35,7 @@ class CustomTextField extends StatelessWidget {
           width: 1,
         ),
         boxShadow: [
-          BoxShadow(
-            color: softGrey.withOpacity(0.5),
-            spreadRadius: 0,
-            blurRadius: 2,
-            offset: const Offset(0, 3), // Offset
-          ),
+          mainShadow
         ],
       ),
       child: Padding(
