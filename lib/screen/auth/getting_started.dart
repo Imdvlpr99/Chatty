@@ -20,59 +20,73 @@ class GettingStartedState extends State<GettingStarted> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.only(top: 135),
-              child: Center(
-                child: SvgPicture.asset(
-                    'assets/images/getting_started_light.svg'
-                ),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 42),
-              child: Text(
-                gettingStarted,
-                textAlign: TextAlign.center,
-                style: bold24spBlack,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 15),
-              child: Text(
-                gettingStartedDesc,
-                textAlign: TextAlign.center,
-                style: regular18spAshGrey,
-              ),
-            ),
-            const Spacer(),
-            Container(
-              margin: const EdgeInsets.only(bottom: 24),
-              width: double.infinity,
-              height: 52,
-              child: ElevatedButton(
-                  style: buttonPrimary,
-                  onPressed: () async {
-                    Navigator.pushReplacement(
-                        context,
-                        CustomPageRoute(
-                            child: const BaseAuth(),
-                            direction: AxisDirection.left
-                        )
-                    );
-                    await SharedPreferencesUtils.setBoolean(isNotFirstInstall, true);
-                  },
-                  child: Text(
-                    startMessaging,
-                    style: semiBold16spWhite,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Stack(
+            children: [
+              Positioned.fill(
+                  child: Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Center(
+                          child: SvgPicture.asset(
+                            'assets/images/getting_started_light.svg',
+                            width: 200,
+                            height: 200,
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(top: 42),
+                          child: Text(
+                            gettingStarted,
+                            textAlign: TextAlign.center,
+                            style: bold24spBlack,
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(top: 15, bottom: 150),
+                          child: Text(
+                            gettingStartedDesc,
+                            textAlign: TextAlign.center,
+                            style: regular18spAshGrey,
+                          ),
+                        ),
+                      ],
+                    ),
                   )
               ),
-            )
-          ],
-        ),
+              Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    margin: const EdgeInsets.only(bottom: 24),
+                    width: double.infinity,
+                    height: 52,
+                    child: ElevatedButton(
+                        style: buttonPrimary,
+                        onPressed: () async {
+                          Navigator.pushReplacement(
+                              context,
+                              CustomPageRoute(
+                                  child: const BaseAuth(),
+                                  direction: AxisDirection.left
+                              )
+                          );
+                          await SharedPreferencesUtils.setBoolean(isNotFirstInstall, true);
+                        },
+                        child: Text(
+                          startMessaging,
+                          style: semiBold16spWhite,
+                        )
+                    ),
+                  )
+              )
+            ],
+          ),
+        )
       ),
     );
   }
