@@ -44,10 +44,10 @@ class BaseAuthState extends State<BaseAuth> with SingleTickerProviderStateMixin 
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(darkMode);
     return Scaffold(
-      backgroundColor: blackSoft,
-      body: Column(
-        children: [
-          Expanded(
+        backgroundColor: blackSoft,
+        body: Column(
+          children: [
+            Expanded(
               child: Stack(
                 children: [
                   Positioned(
@@ -61,93 +61,86 @@ class BaseAuthState extends State<BaseAuth> with SingleTickerProviderStateMixin 
                       )
                   ),
                   Positioned(
-                      top: 145,
-                      left: 0,
-                      right: 0,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 24),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              _selectedIndex == 0 ? loginTitle : registerTitle,
-                              style: bold24spWhite,
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              authDesc,
-                              style: medium12spSmokeGrey,
-                            )
-                          ],
+                    top: 150,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 24),
+                          child: Text(
+                            _selectedIndex == 0 ? loginTitle : registerTitle,
+                            style: bold24spWhite,
+                          ),
                         ),
-                      )
-                  ),
-                  Positioned(
-                      top: 270,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                            color: white,
-                            borderRadius: BorderRadius.vertical(top: Radius.circular(40))
+                        const SizedBox(height: 8),
+                        Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 24),
+                          child: Text(
+                            authDesc,
+                            style: medium12spSmokeGrey,
+                          ),
                         ),
-                        child: Column(
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
-                              height: 52,
-                              decoration: BoxDecoration(
-                                  color: softGrey,
-                                  borderRadius: BorderRadius.circular(32),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: softGrey.withOpacity(0.5),
-                                      spreadRadius: 0,
-                                      blurRadius: 2,
-                                      offset: const Offset(0, 3), // Offset
+                        const SizedBox(height: 32),
+                        Expanded(
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                  color: white,
+                                  borderRadius: BorderRadius.vertical(top: Radius.circular(40))
+                              ),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    margin: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
+                                    height: 52,
+                                    decoration: BoxDecoration(
+                                        color: softGrey,
+                                        borderRadius: BorderRadius.circular(32),
+                                        boxShadow: [
+                                          mainShadow,
+                                        ]
                                     ),
-                                  ]
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(5),
-                                child: TabBar(
-                                  dividerColor: Colors.transparent,
-                                  controller: _tabController,
-                                  tabs: _tabs,
-                                  labelStyle: semiBold14spDarkBlue,
-                                  unselectedLabelStyle: medium14spAshGrey,
-                                  indicatorSize: TabBarIndicatorSize.tab,
-                                  indicator: BoxDecoration(
-                                      color: white,
-                                      borderRadius: BorderRadius.circular(48)
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(5),
+                                      child: TabBar(
+                                        dividerColor: Colors.transparent,
+                                        controller: _tabController,
+                                        tabs: _tabs,
+                                        labelStyle: semiBold14spDarkBlue,
+                                        unselectedLabelStyle: medium14spAshGrey,
+                                        indicatorSize: TabBarIndicatorSize.tab,
+                                        indicator: BoxDecoration(
+                                            color: white,
+                                            borderRadius: BorderRadius.circular(48)
+                                        ),
+                                        onTap: (index) {
+                                          setState(() {
+                                            _selectedIndex = index;
+                                          });
+                                        },
+                                      ),
+                                    ),
                                   ),
-                                  onTap: (index) {
-                                    setState(() {
-                                      _selectedIndex = index;
-                                    });
-                                  },
-                                ),
+                                  Expanded(
+                                    child: TabBarView(
+                                      controller: _tabController,
+                                      children: _tabScreen,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
-                            Expanded(
-                              child: TabBarView(
-                                controller: _tabController,
-                                children: _tabScreen,
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
+                            )
+                        )
+                      ],
+                    ),
                   )
                 ],
-              )
-          )
-        ],
-      )
+              ),
+            )
+          ],
+        )
     );
   }
-
 }
