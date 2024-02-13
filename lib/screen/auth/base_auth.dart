@@ -113,7 +113,10 @@ class BaseAuthState extends State<BaseAuth> with SingleTickerProviderStateMixin 
                                         indicatorSize: TabBarIndicatorSize.tab,
                                         indicator: BoxDecoration(
                                             color: white,
-                                            borderRadius: BorderRadius.circular(48)
+                                            borderRadius: BorderRadius.circular(48),
+                                            boxShadow: [
+                                              mainShadow
+                                            ]
                                         ),
                                         onTap: (index) {
                                           setState(() {
