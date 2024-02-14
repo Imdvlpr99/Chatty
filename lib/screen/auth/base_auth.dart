@@ -18,14 +18,14 @@ class BaseAuthState extends State<BaseAuth> with SingleTickerProviderStateMixin 
   late final TabController _tabController;
   int _selectedIndex = 0;
 
-  final List<Tab> _tabs = [
-    const Tab(text: login,),
-    const Tab(text: register,)
+  final List<Tab> _tabs = const [
+    Tab(text: login,),
+    Tab(text: register,)
   ];
 
-  final List<Widget> _tabScreen = [
-    const Login(),
-    const Register()
+  final List<Widget> _tabScreen = const [
+    Login(),
+    Register()
   ];
 
   @override
@@ -45,26 +45,23 @@ class BaseAuthState extends State<BaseAuth> with SingleTickerProviderStateMixin 
     SystemChrome.setSystemUIOverlayStyle(darkMode);
     return Scaffold(
         backgroundColor: blackSoft,
-        body: Column(
-          children: [
-            Expanded(
-              child: Stack(
-                children: [
-                  Positioned(
-                      top: 0,
-                      right: 0,
-                      left: 0,
-                      child: SvgPicture.asset(
-                        'assets/images/header_bg.svg',
-                        fit: BoxFit.cover,
-                        alignment: Alignment.topCenter,
-                      )
-                  ),
-                  Positioned(
-                    top: 150,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
+        body: SafeArea(
+          child: Stack(
+            children: [
+              Positioned(
+                  top: 0,
+                  right: 0,
+                  left: 0,
+                  child: SvgPicture.asset(
+                    'assets/images/header_bg.svg',
+                    fit: BoxFit.cover,
+                    alignment: Alignment.topCenter,
+                  )
+              ),
+              Positioned.fill(
+                child: SingleChildScrollView(
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 150),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -84,65 +81,65 @@ class BaseAuthState extends State<BaseAuth> with SingleTickerProviderStateMixin 
                           ),
                         ),
                         const SizedBox(height: 32),
-                        Expanded(
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                  color: white,
-                                  borderRadius: BorderRadius.vertical(top: Radius.circular(40))
-                              ),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    margin: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
-                                    height: 52,
-                                    decoration: BoxDecoration(
-                                        color: softGrey,
-                                        borderRadius: BorderRadius.circular(32),
-                                        boxShadow: [
-                                          mainShadow,
-                                        ]
+                        Container(
+                          decoration: const BoxDecoration(
+                            color: white,
+                            borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
+                          ),
+                          child: Column(
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
+                                height: 52,
+                                decoration: BoxDecoration(
+                                  color: softGrey,
+                                  borderRadius: BorderRadius.circular(32),
+                                  boxShadow: [mainShadow],
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(5),
+                                  child: TabBar(
+                                    dividerColor: Colors.transparent,
+                                    controller: _tabController,
+                                    tabs: _tabs,
+                                    labelStyle: semiBold14spDarkBlue,
+                                    unselectedLabelStyle: medium14spAshGrey,
+                                    indicatorSize: TabBarIndicatorSize.tab,
+                                    indicator: BoxDecoration(
+                                      color: white,
+                                      borderRadius: BorderRadius.circular(48),
+                                      boxShadow: [mainShadow],
                                     ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(5),
-                                      child: TabBar(
-                                        dividerColor: Colors.transparent,
-                                        controller: _tabController,
-                                        tabs: _tabs,
-                                        labelStyle: semiBold14spDarkBlue,
-                                        unselectedLabelStyle: medium14spAshGrey,
-                                        indicatorSize: TabBarIndicatorSize.tab,
-                                        indicator: BoxDecoration(
-                                            color: white,
-                                            borderRadius: BorderRadius.circular(48),
-                                            boxShadow: [
-                                              mainShadow
-                                            ]
-                                        ),
-                                        onTap: (index) {
-                                          setState(() {
-                                            _selectedIndex = index;
-                                          });
-                                        },
-                                      ),
-                                    ),
+                                    onTap: (index) {
+                                      setState(() {
+                                        _selectedIndex = index;
+                                      });
+                                    },
                                   ),
-                                  Expanded(
-                                    child: TabBarView(
-                                      controller: _tabController,
-                                      children: _tabScreen,
-                                    ),
-                                  ),
-                                ],
+                                ),
                               ),
-                            )
-                        )
+                              Container(
+                                constraints: const BoxConstraints(
+                                    maxHeight: 800
+                                ),
+                                child: Container(
+                                  margin: const EdgeInsets.symmetric(vertical: 8),
+                                  child: TabBarView(
+                                    controller: _tabController,
+                                    children: _tabScreen,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
                       ],
                     ),
-                  )
-                ],
-              ),
-            )
-          ],
+                  ),
+                ),
+              )
+            ],
+          )
         )
     );
   }
