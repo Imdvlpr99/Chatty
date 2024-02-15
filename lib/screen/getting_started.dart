@@ -6,7 +6,7 @@ import 'package:chatty/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../utils/shared_preference.dart';
+import '../utils/shared_preference.dart';
 
 class GettingStarted extends StatefulWidget {
   const GettingStarted({super.key});
