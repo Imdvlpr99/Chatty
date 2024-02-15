@@ -27,6 +27,9 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      constraints: const BoxConstraints(
+        minHeight: 52
+      ),
       decoration: BoxDecoration(
         color: white,
         borderRadius: BorderRadius.circular(32),
@@ -63,7 +66,7 @@ class CustomTextField extends StatelessWidget {
                 maxLines: isObscureText ? 1 : maxLines,
                 minLines: minLines,
                 decoration: InputDecoration(
-                  contentPadding: EdgeInsets.zero,
+                  contentPadding: const EdgeInsets.symmetric(vertical: 5),
                   filled: true,
                   fillColor: Colors.transparent,
                   hintText: labelText,
@@ -78,7 +81,7 @@ class CustomTextField extends StatelessWidget {
                     borderSide: BorderSide(color: Colors.transparent),
                   ),
                 ),
-              ),
+              )
             )
           ],
         ),
