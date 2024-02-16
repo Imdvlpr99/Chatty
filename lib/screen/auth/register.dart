@@ -14,6 +14,7 @@ class Register extends StatefulWidget {
 
 class RegisterState extends State<Register> {
   final _phoneNumber = TextEditingController();
+  final _email = TextEditingController();
   final _userName = TextEditingController();
   final _password = TextEditingController();
 
@@ -30,28 +31,36 @@ class RegisterState extends State<Register> {
               CustomTextField(
                 controller: _phoneNumber,
                 labelText: phoneNumberHint,
-                textInputType: TextInputType.text,
+                textInputType: TextInputType.number,
                 prefix: Iconsax.call,
               ),
-              const SizedBox(height: 16),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 16),
+                child: CustomTextField(
+                  controller: _email,
+                  labelText: emailHint,
+                  textInputType: TextInputType.emailAddress,
+                  prefix: Iconsax.sms,
+                ),
+              ),
               CustomTextField(
                 controller: _userName,
                 labelText: userNameHint,
                 textInputType: TextInputType.text,
                 prefix: Iconsax.user,
               ),
-              const SizedBox(height: 16),
-              CustomTextField(
-                controller: _password,
-                labelText: passwordHint,
-                textInputType: TextInputType.text,
-                isObscureText: true,
-                prefix: Iconsax.lock,
+              Container(
+                margin: const EdgeInsets.only(top: 16),
+                child: CustomTextField(
+                  controller: _password,
+                  labelText: passwordHint,
+                  textInputType: TextInputType.text,
+                  isObscureText: true,
+                  prefix: Iconsax.lock,
+                ),
               ),
-              const SizedBox(height: 24),
-              SizedBox(
-                width: double.infinity,
-                height: 56,
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 24),
                 child: ElevatedButton(
                   style: buttonPrimary,
                   onPressed: () {},

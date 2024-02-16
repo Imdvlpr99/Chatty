@@ -48,15 +48,16 @@ class LoginState extends State<Login> {
                 textInputType: TextInputType.multiline,
                 prefix: Iconsax.sms,
               ),
-              const SizedBox(height: 16),
-              CustomTextField(
-                controller: _passwordController,
-                labelText: passwordHint,
-                textInputType: TextInputType.visiblePassword,
-                isObscureText: true,
-                prefix: Iconsax.lock,
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 16),
+                child: CustomTextField(
+                  controller: _passwordController,
+                  labelText: passwordHint,
+                  textInputType: TextInputType.visiblePassword,
+                  isObscureText: true,
+                  prefix: Iconsax.lock,
+                ),
               ),
-              const SizedBox(height: 16),
               Row(
                 children: [
                   CustomCheckBox(
@@ -80,10 +81,8 @@ class LoginState extends State<Login> {
                   )
                 ],
               ),
-              const SizedBox(height: 24),
-              SizedBox(
-                width: double.infinity,
-                height: 56,
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 24),
                 child: ElevatedButton(
                     style: buttonPrimary,
                     onPressed: () {
@@ -99,7 +98,6 @@ class LoginState extends State<Login> {
                     )
                 ),
               ),
-              const SizedBox(height: 24),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 height: 32,
@@ -134,12 +132,11 @@ class LoginState extends State<Login> {
                   ],
                 ),
               ),
-              const SizedBox(height: 24),
-              Row(
-                children: [
-                  Expanded(
-                    child: SizedBox(
-                      height: 56,
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 24),
+                child: Row(
+                  children: [
+                    Expanded(
                       child: ElevatedButton(
                         style: buttonSecondary,
                         onPressed: () {},
@@ -161,11 +158,8 @@ class LoginState extends State<Login> {
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: SizedBox(
-                      height: 56,
+                    const SizedBox(width: 8),
+                    Expanded(
                       child: ElevatedButton(
                         style: buttonSecondary,
                         onPressed: () {},
@@ -187,9 +181,9 @@ class LoginState extends State<Login> {
                           ],
                         ),
                       ),
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             ],
           ),
