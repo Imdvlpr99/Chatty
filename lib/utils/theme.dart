@@ -35,23 +35,25 @@ LinearGradient mainBackground() {
 
 /** Button Style **/
 final ButtonStyle buttonPrimary = ElevatedButton.styleFrom(
-  backgroundColor: darkBlue,
-  elevation: 0,
-  shape: const RoundedRectangleBorder(
-    borderRadius: BorderRadius.all(Radius.circular(32))
-  )
+    backgroundColor: darkBlue,
+    minimumSize: const Size(double.infinity, 56),
+    elevation: 0,
+    shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(32))
+    )
 );
 
 final ButtonStyle buttonSecondary = ElevatedButton.styleFrom(
-  backgroundColor: white,
-  elevation: 0,
-  side: const BorderSide(
-      width: 1,
-      color: grey
-  ),
-  shape: const RoundedRectangleBorder(
-    borderRadius: BorderRadius.all(Radius.circular(32)),
-  )
+    backgroundColor: white,
+    minimumSize: const Size(double.infinity, 56),
+    elevation: 0,
+    side: const BorderSide(
+        width: 1,
+        color: grey
+    ),
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(32)),
+    )
 );
 
 /** Text Style **/
