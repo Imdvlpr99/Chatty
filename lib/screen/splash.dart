@@ -1,5 +1,5 @@
 import 'package:chatty/screen/auth/base_auth.dart';
-import 'package:chatty/screen/auth/getting_started.dart';
+import 'package:chatty/screen/getting_started.dart';
 import 'package:chatty/utils/color.dart';
 import 'package:chatty/utils/constants.dart';
 import 'package:chatty/utils/shared_preference.dart';
