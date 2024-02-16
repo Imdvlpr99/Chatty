@@ -18,6 +18,10 @@ const String authDesc = 'Sign in-up to enjoy the best messaging experience';
 const String gettingStarted = 'Connect easily with\nyour family and friends';
 const String gettingStartedDesc = 'Feel the best messaging experience\nwith your family and friends\nall in your hands';
 const String startMessaging = 'Start Messaging';
+const String phoneNumberHint = 'Phone Number';
+const String userNameHint = 'Username';
+const String emailHint = 'Email';
+const String validateOtp = 'Validate OTP';
 
 /** KEY **/
 const String isNotFirstInstall = 'IS_NOT_FIRST_INSTALL';
