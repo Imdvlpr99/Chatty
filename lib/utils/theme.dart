@@ -69,6 +69,12 @@ final TextStyle medium14spAshGrey = GoogleFonts.poppins().copyWith(
     fontSize: 14
 );
 
+final TextStyle medium32spWhite = GoogleFonts.poppins().copyWith(
+    color: white,
+    fontWeight: FontWeight.w500,
+    fontSize: 32
+);
+
 final TextStyle semiBold12spDarkBlue = GoogleFonts.poppins().copyWith(
     color: darkBlue,
     fontWeight: FontWeight.w600,
