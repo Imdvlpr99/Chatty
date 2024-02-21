@@ -1,6 +1,5 @@
 import 'package:chatty/utils/color.dart';
 import 'package:chatty/widget/nav_item.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomNavBar extends StatefulWidget {
