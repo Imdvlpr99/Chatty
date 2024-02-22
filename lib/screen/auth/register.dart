@@ -1,5 +1,7 @@
+import 'package:chatty/screen/auth/otp.dart';
 import 'package:chatty/utils/color.dart';
 import 'package:chatty/utils/constants.dart';
+import 'package:chatty/utils/custom_page_route.dart';
 import 'package:chatty/utils/theme.dart';
 import 'package:chatty/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -63,7 +65,15 @@ class RegisterState extends State<Register> {
                 margin: const EdgeInsets.symmetric(vertical: 24),
                 child: ElevatedButton(
                   style: buttonPrimary,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        CustomPageRoute(
+                            child: const Otp(),
+                            direction: AxisDirection.left
+                        )
+                    );
+                  },
                   child: Text(
                     register,
                     style: bold16spWhite,
