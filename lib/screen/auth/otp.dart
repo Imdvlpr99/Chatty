@@ -12,6 +12,14 @@ class Otp extends StatefulWidget {
 }
 
 class OtpState extends State<Otp> {
+  late bool isInputValid;
+
+  @override
+  void initState() {
+    super.initState();
+    isInputValid = false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +34,13 @@ class OtpState extends State<Otp> {
             Center(
               child: Column(
                 children: [
-                  OtpInput()
+                  OtpInput(
+                    isInputValid: (bool value) {
+                      setState(() {
+                        isInputValid = value;
+                      });
+                    },
+                  )
                 ],
               ),
             ),
@@ -35,7 +49,9 @@ class OtpState extends State<Otp> {
               margin: const EdgeInsets.symmetric(vertical: 24),
               child: ElevatedButton(
                 style: buttonPrimary,
-                onPressed: () {},
+                onPressed: isInputValid ? () {
+
+                } : null,
                 child: Text(
                   validateOtp,
                   style: bold16spWhite,
